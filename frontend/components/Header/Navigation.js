@@ -8,6 +8,7 @@ import { signout, isAuth } from "../../actions/auth";
 import Router from "next/router";
 import NProgress from "nprogress";
 import "../../node_modules/nprogress/nprogress.css";
+import Search from "../Blog/Search";
 
 Router.onRouteChangeStart = url => NProgress.start();
 Router.onRouteChangeComplete = url => NProgress.done();
@@ -16,7 +17,7 @@ Router.onRouteChangeError = url => NProgress.done();
 const Navigation = () => {
     return (
             <Navbar bg="light" expand="lg">
-                <Navbar.Brand><Link href="/"><a>{APP_NAME}</a></Link></Navbar.Brand>
+                <Navbar.Brand><Link href="/"><a style={{color: `hotpink`}}>{APP_NAME}</a></Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     {/* Don't uncomment this section unless you've read the documentation below. */}
@@ -50,32 +51,36 @@ const Navigation = () => {
 
                     {/* PLEASE DON'T CHANGE THIS. There was a change in how Next.js handles links which impacts routing as well.
                     Refer to https://nextjs.org/docs/api-reference/next/router before you change anything. */}
-                    <Nav className="ml-auto">
-                        <Link href="/"><a>Home</a></Link>
+                    
 
-                        <Link href="/blogs"><a>Blogs</a></Link>
+                    <Nav className="ml-auto align-items-center">
+                        <Search />
+
+                        <Link href="/"><a className="ml-2" style={{color: `hotpink`}}>Home</a></Link>
+
+                        <Link href="/blogs"><a className="ml-2" style={{color: `hotpink`}}>Blogs</a></Link>
 
                         {!isAuth() && (
                         <>
-                        <Link href="/signin"><a>Signin</a></Link>
-                        <Link href="/signup"><a>Signup</a></Link>
+                        <Link href="/signin"><a className="ml-2" style={{color: `hotpink`}}>Signin</a></Link>
+                        <Link href="/signup"><a className="ml-2" style={{color: `hotpink`}}>Signup</a></Link>
                         </>
                         )}
 
                         {isAuth() && (
-                        <NavLink onClick={() => signout(() => Router.replace(`/signin`))}>
+                        <NavLink className="ml-2" style={{color: `hotpink`, padding: `0`}} onClick={() => signout(() => Router.replace(`/signin`))}>
                             Signout
                         </NavLink>
                         )}
 
                         {isAuth() && isAuth().role === 0 && (
-                        <Link href="/user"><a>
+                        <Link href="/user"><a className="ml-2" style={{color: `hotpink`}}>
                             {`${isAuth().name}'s Dashboard`}
                             </a></Link>
                         )}
 
                         {isAuth() && isAuth().role === 1 && (
-                        <Link href="/admin"><a>
+                        <Link href="/admin"><a className="ml-2" style={{color: `hotpink`}}>
                             {`${isAuth().name}'s Dashboard`}
                             </a></Link>
                         )}
