@@ -217,16 +217,6 @@ const CreateBlog = ({router}) => {
                         {showError()}
                         {showSuccess()}
                     </div>
-                    {/* <hr />
-                    <h3>Preview:</h3>
-                    <hr />
-                    {JSON.stringify(title)}
-                    <hr />
-                    {JSON.stringify(body)}
-                    <hr />
-                    {JSON.stringify(categories)}
-                    <hr />
-                    {JSON.stringify(tags)} */}
                 </div>
                 <div className="col-md-4">
                     <div className="form-group pb-2">

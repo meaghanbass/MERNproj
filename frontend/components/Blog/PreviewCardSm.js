@@ -6,7 +6,7 @@ import { API } from '../../config';
 const PreviewCardSm = ({blog}) => {
 
     return (
-        <div className="card">
+        <div className="card col-md-4">
             <section>
                 <Link href={`/blogs/${blog.slug}`}>
                     <a>
@@ -24,7 +24,7 @@ const PreviewCardSm = ({blog}) => {
                 <section>
                     <Link href={`/blogs/${blog.slug}`}>
                         <a>
-                            <h5 className="card-title text-warning">{blog.title}</h5>
+                            <h5 className="card-title text-center">{blog.title}</h5>
                         </a>
                     </Link>
                     <p className="card-text">{renderHTML(blog.excerpt)}</p>

@@ -60,10 +60,8 @@ const SingleBlog = ({blog, query}) => {
 
     const showRelatedBlogs = () => {
         return related.map((blog, i) => (
-            <div className="col-md-4" key={i}>
-                <PreviewCardSm blog={blog} />
-            </div>
-        ))
+            <PreviewCardSm key={i} blog={blog} />
+        ));
     };
 
     return (
