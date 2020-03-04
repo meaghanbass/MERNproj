@@ -33,24 +33,30 @@ const Search = () => {
 
     const searchedBlogs = (results = []) => {
         return (
-            <div>
-                {message && <p>{message}</p>}
+            // <div>
+            //     {message && <p>{message}</p>}
 
-                {results.map((blog, i) => {
-                    return (
-                        // <Modal.Dialog key={i}>
-                        //     <Link href={`/blogs/${blog.slug}`}><a>{blog.title}</a></Link>
-                        // </Modal.Dialog>
+            //     {results.map((blog, i) => {
+            //         return (
+            //             <Modal.Dialog key={i}>
+            //                 <Link href={`/blogs/${blog.slug}`}><a>{blog.title}</a></Link>
+            //             </Modal.Dialog>
+            //         );
+            //     })}
+            // </div>
 
-                        <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton />
-                        <Modal.Body><Modal.Dialog key={i}>
-                            <Link href={`/blogs/${blog.slug}`}><a>{blog.title}</a></Link>
-                        </Modal.Dialog></Modal.Body>
-                        </Modal>
-                    );
-                })}
-            </div>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>{message && <p>{message}</p>}</Modal.Header>
+                <Modal.Body>
+                    {results.map((blog, i) => {
+                        return (
+                            <div key={i}>
+                                <Link href={`/blogs/${blog.slug}`}><a>{blog.title}</a></Link>
+                            </div>
+                        );
+                    })}
+                </Modal.Body>
+            </Modal>
         );
     };
 
