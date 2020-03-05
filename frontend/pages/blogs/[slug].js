@@ -8,6 +8,7 @@ import { API, DOMAIN, APP_NAME } from "../../config";
 import moment from "moment";
 import renderHTML from 'react-render-html';
 import PreviewCardSm from "../../components/Blog/PreviewCardSm";
+import DisqusThread from "../../components/DisqusThread";
 
 const SingleBlog = ({blog, query}) => {
     const [related, setRelated] = useState([]);
@@ -64,6 +65,14 @@ const SingleBlog = ({blog, query}) => {
         ));
     };
 
+    const showComments = () => {
+        return (
+            <div>
+                <DisqusThread id={blog.id} title={blog.title} path={`/blog/${blog.slug}`} />
+            </div>
+        );
+    };
+
     return (
         <>
             {head()}
@@ -80,7 +89,7 @@ const SingleBlog = ({blog, query}) => {
                             <section>
                                 <h1>{blog.title}</h1>
                                 <p className="lead">
-                                    Written by {blog.postedBy.name} | Published {moment(blog.updatedAt).fromNow()}
+                                    Written by <Link href={`/profile/${blog.postedBy.username}`}><a>{blog.postedBy.username}</a></Link> | Published {moment(blog.updatedAt).fromNow()}
                                 </p>
                                 <div>
                                     <p>
@@ -106,6 +115,7 @@ const SingleBlog = ({blog, query}) => {
 
                         <div>
                             <h4>Comments:</h4>
+                            {showComments()}
                         </div>
                     </article>
                 </main>

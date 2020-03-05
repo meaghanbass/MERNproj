@@ -1,1 +1,2 @@
-README file
+## MERN Blog Boilerplate
+

@@ -66,7 +66,7 @@ const SignInComponent = () => {
                 </Form.Group>
 
                 <div>
-                    <button onClick={handleSubmit} className="btn btn-primary">Sign In</button>
+                    <button onClick={handleSubmit} className="btn" style={{borderColor: `hotpink`, backgroundColor: `hotpink`, color: `lavenderblush`}}>Sign In</button>
                 </div>
             </Form>
         );

@@ -56,34 +56,37 @@ const Navigation = () => {
                     <Nav className="ml-auto align-items-center">
                         <Search />
 
-                        <Link href="/"><a className="ml-2" style={{color: `hotpink`}}>Home</a></Link>
+                        <Link href="/"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Home</a></Link>
 
-                        <Link href="/blogs"><a className="ml-2" style={{color: `hotpink`}}>Blogs</a></Link>
+                        <Link href="/blogs"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Blogs</a></Link>
 
                         {!isAuth() && (
                         <>
-                        <Link href="/signin"><a className="ml-2" style={{color: `hotpink`}}>Signin</a></Link>
-                        <Link href="/signup"><a className="ml-2" style={{color: `hotpink`}}>Signup</a></Link>
+                        <Link href="/signin"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Sign In</a></Link>
+                        <Link href="/signup"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Sign Up</a></Link>
                         </>
                         )}
 
                         {isAuth() && (
-                        <NavLink className="ml-2" style={{color: `hotpink`, padding: `0`}} onClick={() => signout(() => Router.replace(`/signin`))}>
-                            Signout
+                        <NavLink className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, padding: `.375rem .75rem`, background: `lavenderblush`}} onClick={() => signout(() => Router.replace(`/signin`))}>
+                            Sign Out
                         </NavLink>
                         )}
 
                         {isAuth() && isAuth().role === 0 && (
-                        <Link href="/user"><a className="ml-2" style={{color: `hotpink`}}>
+                        <Link href="/user"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>
                             {`${isAuth().name}'s Dashboard`}
                             </a></Link>
                         )}
 
                         {isAuth() && isAuth().role === 1 && (
-                        <Link href="/admin"><a className="ml-2" style={{color: `hotpink`}}>
+                        <Link href="/admin"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>
                             {`${isAuth().name}'s Dashboard`}
                             </a></Link>
                         )}
+
+                        <Link href="/user/crud/blog"><a className="ml-2 btn" style={{border: `1px solid mediumorchid`, color: `mediumorchid`, background: `lavender`}}>Create Blog</a></Link>
+
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

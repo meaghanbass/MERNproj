@@ -5,7 +5,7 @@ import { getCookie, isAuth } from "../../actions/auth";
 import { list, removeBlog } from "../../actions/blog";
 import moment from "moment";
 
-const BlogRead = () => {
+const BlogRead = ({username}) => {
 
     const [blogs, setBlogs] = useState([]);
     const [message, setMessage] = useState('');
@@ -16,7 +16,7 @@ const BlogRead = () => {
     }, []);
 
     const loadBlogs = () => {
-        list().then(data => {
+        list(username).then(data => {
             if(data.error) {
                 console.log(data.error);
             } else {
@@ -46,11 +46,11 @@ const BlogRead = () => {
     const showUpdateButton = (blog) => {
         if(isAuth() && isAuth().role === 0) {
             return (
-                <Link href={`/user/crud/${blog.slug}`}><a className="ml-2 btn btn-sm btn-warning">Update</a></Link>
+                <Link href={`/user/crud/${blog.slug}`}><a className="ml-2 btn btn-sm" style={{color: `lavender`, background: `mediumorchid`}}>Update</a></Link>
             );
         } else if(isAuth() && isAuth().role === 1) {
             return (
-                <Link href={`/admin/crud/${blog.slug}`}><a className="ml-2 btn btn-sm btn-warning">Update</a></Link>
+                <Link href={`/admin/crud/${blog.slug}`}><a className="ml-2 btn btn-sm" style={{color: `lavender`, background: `mediumorchid`}}>Update</a></Link>
             );
         }
     };
@@ -61,7 +61,7 @@ const BlogRead = () => {
                 <div key={i} className="mt-5 col-md-12">
                     <h3>{blog.title}</h3>
                     <p>Written by: {blog.postedBy.name} | Published on: {moment(blog.updatedAt).fromNow()}</p>
-                    <button className="btn btn-sm btn-danger" onClick={() => deleteConfirm(blog.slug)}>Delete</button>
+                    <button className="btn btn-sm" onClick={() => deleteConfirm(blog.slug)} style={{backgroundColor: `hotpink`, color: `lavenderblush`}}>Delete</button>
                     {showUpdateButton(blog)}
                 </div>
             )

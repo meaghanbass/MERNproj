@@ -32,10 +32,7 @@ const PreviewCardSm = ({blog}) => {
             </div>
 
             <div className="card-body">
-                Posted {moment(blog.updatedAt).fromNow()} by{' '}
-                <Link href={`/`}>
-                    <a className="float-right">{blog.postedBy.name}</a>
-                </Link>
+                Posted {moment(blog.updatedAt).fromNow()} by <Link href={`/profile/${blog.postedBy.username}`}><a>{blog.postedBy.username}</a></Link>
             </div>
         </div>
     );

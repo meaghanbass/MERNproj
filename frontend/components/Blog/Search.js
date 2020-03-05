@@ -75,7 +75,7 @@ const Search = () => {
 
                 <Form inline>
                     <FormControl type="search" placeholder="Search Posts" className="mr-sm-2" onChange={handleChange} />
-                    <Button onClick={searchSubmit} variant="none" style={{borderColor: `hotpink`, backgroundColor: `hotpink`}}>Search</Button>
+                    <Button onClick={searchSubmit} variant="none" style={{borderColor: `hotpink`, backgroundColor: `hotpink`, color: `lavenderblush`}}>Search</Button>
                 </Form>
                 {searched && <div style={{position: `fixed`, zIndex: `10000`}}>{searchedBlogs(results)}</div>}
             </>
