@@ -189,7 +189,7 @@ const CreateBlog = ({router}) => {
 
     const createBlogForm = () => {
         return (
-            <form onSubmit={publishBlog}>
+            <form>
                 <div className="form-group">
                     <label className="text-muted">Title</label>
                     <input className="form-control" type="text" value={title} onChange={handleChange('title')} />
@@ -200,7 +200,7 @@ const CreateBlog = ({router}) => {
                 </div>
 
                 <div>
-                    <Button type="submit">
+                    <Button onClick={publishBlog}>
                         Publish
                     </Button>
                 </div>

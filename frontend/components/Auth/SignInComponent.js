@@ -54,7 +54,7 @@ const SignInComponent = () => {
 
     const signinForm = () => {
         return (
-            <Form onSubmit={handleSubmit}>
+            <Form>
                 <Form.Group>
                     <Form.Label>Email</Form.Label>
                     <Form.Control value={email} onChange={handleChange('email')} type="email" placeholder="Email" />
@@ -66,7 +66,7 @@ const SignInComponent = () => {
                 </Form.Group>
 
                 <div>
-                    <button type="submit" className="btn btn-primary">Sign In</button>
+                    <button onClick={handleSubmit} className="btn btn-primary">Sign In</button>
                 </div>
             </Form>
         );

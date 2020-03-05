@@ -67,26 +67,17 @@ const Search = () => {
     const searchForm = () => {
         return (
             <>
-                {/* <Form onSubmit={searchSubmit} inline>
+                {/* <Form inline>
                     <FormControl type="search" placeholder="Search Posts" className="mr-sm-2" onChange={handleChange} />
-                    <Button type="submit" variant="none" style={{borderColor: `hotpink`, backgroundColor: `hotpink`}}>Search</Button>
+                    <Button onClick={searchSubmit} variant="none" style={{borderColor: `hotpink`, backgroundColor: `hotpink`}}>Search</Button>
                 </Form>
                 {searched && <div style={{position: `fixed`, top: `50px`, backgroundColor: `hotpink`, zIndex: `10000`, width: `100%`}}>{searchedBlogs(results)}</div>} */}
 
-                <Form onSubmit={searchSubmit} inline>
+                <Form inline>
                     <FormControl type="search" placeholder="Search Posts" className="mr-sm-2" onChange={handleChange} />
-                    <Button type="submit" variant="none" style={{borderColor: `hotpink`, backgroundColor: `hotpink`}}>Search</Button>
+                    <Button onClick={searchSubmit} variant="none" style={{borderColor: `hotpink`, backgroundColor: `hotpink`}}>Search</Button>
                 </Form>
                 {searched && <div style={{position: `fixed`, zIndex: `10000`}}>{searchedBlogs(results)}</div>}
-
-                {/* <Button variant="primary" onClick={handleShow}>
-                    Launch demo modal
-                </Button>
-
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton />
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                </Modal> */}
             </>
         );
     };

@@ -215,7 +215,7 @@ const BlogUpdate = ({ router }) => {
 
     const updateBlogForm = () => {
         return (
-            <form onSubmit={editBlog}>
+            <form>
                 <div className="form-group">
                     <label className="text-muted">Title</label>
                     <input type="text" className="form-control" value={title} onChange={handleChange('title')} />
@@ -232,7 +232,7 @@ const BlogUpdate = ({ router }) => {
                 </div>
 
                 <div>
-                    <button type="submit" className="btn btn-primary">
+                    <button onClick={editBlog} className="btn btn-primary">
                         Update
                     </button>
                 </div>
