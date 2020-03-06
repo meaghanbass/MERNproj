@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import { userPublicProfile } from '../../actions/user';
 import { API, DOMAIN, APP_NAME } from '../../config';
 import moment from 'moment';
+import ContactForm from '../../components/form/ContactForm';
 
 const UserProfile = ({ user, blogs, query }) => {
     const head = () => (
@@ -19,9 +20,9 @@ const UserProfile = ({ user, blogs, query }) => {
             <meta property="og:url" content={`${DOMAIN}/profile/${query.username}`} />
             <meta property="og:site_name" content={`${APP_NAME}`} />
 
-            <meta property="og:image" content={`${DOMAIN}/static/images/seoblog.png`} />
-            <meta property="og:image:secure_url" content={`${DOMAIN}/static/images/seoblog.png`} />
-            <meta property="og:image:type" content="image/png" />
+            <meta property="og:image" content={`${DOMAIN}/static/images/seoblog.jpg`} />
+            <meta property="og:image:secure_url" content={`${DOMAIN}/static/images/seoblog.jpg`} />
+            <meta property="og:image:type" content="image/jpg" />
         </Head>
     );
 
@@ -38,7 +39,7 @@ const UserProfile = ({ user, blogs, query }) => {
     };
 
     return (
-        <React.Fragment>
+        <>
             {head()}
             <Layout>
                 <div className="container">
@@ -49,15 +50,9 @@ const UserProfile = ({ user, blogs, query }) => {
                                     <div className="row">
                                         <div className="col-md-8">
                                             <h5>{user.name}</h5>
-                                            {/* <p className="text-muted">Joined {moment(user.createdAt).fromNow()}</p> */}
+                                            <p className="text-muted">Joined {moment(user.createdAt).fromNow()}</p>
                                         </div>
                                         <div className="col-md-4">
-                                            {/* <img
-                                                src={`${API}/user/photo/${user.username}`}
-                                                className="img img-fluid img-thumbnail mb-3"
-                                                style={{height: `100px`}}
-                                                alt="user profile"
-                                            /> */}
                                             <img className="img img-fluid mb-3 rounded-circle"
                                                 style={{backgroundImage: `url(${API}/user/photo/${user.username})`,
                                                         backgroundSize: `cover`,
@@ -98,14 +93,14 @@ const UserProfile = ({ user, blogs, query }) => {
                                         Message {user.name}
                                     </h5>
                                     <br />
-                                    <p>contact form</p>
+                                    <ContactForm authorEmail={user.email} />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </Layout>
-        </React.Fragment>
+        </>
     );
 };
 
@@ -115,7 +110,7 @@ UserProfile.getInitialProps = ({ query }) => {
         if (data.error) {
             console.log(data.error);
         } else {
-            console.log(data);
+            // console.log(data);
             return { user: data.user, blogs: data.blogs, query };
         }
     });

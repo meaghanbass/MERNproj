@@ -59,6 +59,8 @@ const Navigation = () => {
                         <Link href="/"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Home</a></Link>
 
                         <Link href="/blogs"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Blogs</a></Link>
+                        
+                        <Link href="/contact"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Contact</a></Link>
 
                         {!isAuth() && (
                         <>
