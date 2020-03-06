@@ -2,6 +2,7 @@ import Form from "react-bootstrap/Form";
 import { signin, authenticate, isAuth } from "../../actions/auth";
 import { useState, useEffect } from "react";
 import Router from "next/router";
+import Link from 'next/link';
 
 const SignInComponent = () => {
 
@@ -78,6 +79,10 @@ const SignInComponent = () => {
             {showLoading()}
             {showMessage()}
             {showForm && signinForm()}
+            <br/>
+            <Link href="/auth/password/forgot">
+                <a className="" style={{fontSize: '10px', textDecoration: 'underline', float: 'right', color: 'mediumorchid'}}>Forgot password</a>
+            </Link>
         </>
     );
 };
