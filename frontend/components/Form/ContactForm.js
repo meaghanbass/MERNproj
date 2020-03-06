@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { emailContactForm } from '../../actions/form';
+import "./contactform.css";
 
 const ContactForm = ({authorEmail}) => {
     const [values, setValues] = useState({
