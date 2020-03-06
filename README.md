@@ -19,23 +19,14 @@ $ npm start
 
 ##### .env
     NODE_ENV=development
-
     APP_NAME=
-
     PORT=8000
-
     CLIENT_URL=http://localhost:3000
-
     DATABASE=
-
     JWT_SECRET=
-
     SENDGRID_API_KEY=
-
     EMAIL_TO=
-
     EMAIL_FROM=noreply@seoblog.com
-
     JWT_RESET_PASSWORD=
 
 
@@ -49,23 +40,14 @@ $ npm run dev
 
 ##### config.js
     import getConfig from 'next/config';
-
     const { publicRuntimeConfig } = getConfig();
-
     export const API = publicRuntimeConfig.PRODUCTION
-
         ? publicRuntimeConfig.API_PRODUCTION
-
         : publicRuntimeConfig.API_DEVELOPMENT;
-
     export const APP_NAME = publicRuntimeConfig.APP_NAME;
-
     export const DOMAIN = publicRuntimeConfig.PRODUCTION
-
         ? publicRuntimeConfig.DOMAIN_PRODUCTION
-
         : publicRuntimeConfig.DOMAIN_DEVELOPMENT;
-
     export const DISQUS_SHORTNAME = publicRuntimeConfig.DISQUS_SHORTNAME;
 
 
@@ -73,27 +55,16 @@ $ npm run dev
     const withCSS = require('@zeit/next-css');
 
     module.exports = withCSS({
-
-    publicRuntimeConfig: {
-
-    APP_NAME: 'SEO Blog',
-
-    API_DEVELOPMENT: 'http://localhost:8000/api',
-
-    API_PRODUCTION: 'https://seoblog.com/api',
-
-    PRODUCTION: false,
-
-    DOMAIN_DEVELOPMENT: 'http://localhost:3000',
-
-    DOMAIN_PRODUCTION: 'https://seoblog.com',
-
-    DISQUS_SHORTNAME: 'seoblog-15'
-
-    },
-
-    devtool: 'source-map'
-
+        publicRuntimeConfig: {
+            APP_NAME: 'SEO Blog',
+            API_DEVELOPMENT: 'http://localhost:8000/api',
+            API_PRODUCTION: 'https://seoblog.com/api',
+            PRODUCTION: false,
+            DOMAIN_DEVELOPMENT: 'http://localhost:3000',
+            DOMAIN_PRODUCTION: 'https://seoblog.com',
+            DISQUS_SHORTNAME: 'seoblog-15'
+        },
+        devtool: 'source-map'
     });
 
 
