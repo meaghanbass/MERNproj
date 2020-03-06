@@ -18,25 +18,25 @@ $ npm start
 ```
 
 ##### .env
-NODE_ENV=development
+    NODE_ENV=development
 
-APP_NAME=
+    APP_NAME=
 
-PORT=8000
+    PORT=8000
 
-CLIENT_URL=http://localhost:3000
+    CLIENT_URL=http://localhost:3000
 
-DATABASE=
+    DATABASE=
 
-JWT_SECRET=
+    JWT_SECRET=
 
-SENDGRID_API_KEY=
+    SENDGRID_API_KEY=
 
-EMAIL_TO=
+    EMAIL_TO=
 
-EMAIL_FROM=noreply@seoblog.com
+    EMAIL_FROM=noreply@seoblog.com
 
-JWT_RESET_PASSWORD=
+    JWT_RESET_PASSWORD=
 
 
 **Frontend:**
@@ -48,53 +48,53 @@ $ npm run dev
 
 
 ##### config.js
-import getConfig from 'next/config';
+    import getConfig from 'next/config';
 
-const { publicRuntimeConfig } = getConfig();
+    const { publicRuntimeConfig } = getConfig();
 
-export const API = publicRuntimeConfig.PRODUCTION
+    export const API = publicRuntimeConfig.PRODUCTION
 
-    ? publicRuntimeConfig.API_PRODUCTION
+        ? publicRuntimeConfig.API_PRODUCTION
 
-    : publicRuntimeConfig.API_DEVELOPMENT;
+        : publicRuntimeConfig.API_DEVELOPMENT;
 
-export const APP_NAME = publicRuntimeConfig.APP_NAME;
+    export const APP_NAME = publicRuntimeConfig.APP_NAME;
 
-export const DOMAIN = publicRuntimeConfig.PRODUCTION
+    export const DOMAIN = publicRuntimeConfig.PRODUCTION
 
-    ? publicRuntimeConfig.DOMAIN_PRODUCTION
+        ? publicRuntimeConfig.DOMAIN_PRODUCTION
 
-    : publicRuntimeConfig.DOMAIN_DEVELOPMENT;
+        : publicRuntimeConfig.DOMAIN_DEVELOPMENT;
 
-export const DISQUS_SHORTNAME = publicRuntimeConfig.DISQUS_SHORTNAME;
+    export const DISQUS_SHORTNAME = publicRuntimeConfig.DISQUS_SHORTNAME;
 
 
 ##### next.config.js
-const withCSS = require('@zeit/next-css');
+    const withCSS = require('@zeit/next-css');
 
-module.exports = withCSS({
+    module.exports = withCSS({
 
-publicRuntimeConfig: {
+    publicRuntimeConfig: {
 
-APP_NAME: 'SEO Blog',
+    APP_NAME: 'SEO Blog',
 
-API_DEVELOPMENT: 'http://localhost:8000/api',
+    API_DEVELOPMENT: 'http://localhost:8000/api',
 
-API_PRODUCTION: 'https://seoblog.com/api',
+    API_PRODUCTION: 'https://seoblog.com/api',
 
-PRODUCTION: false,
+    PRODUCTION: false,
 
-DOMAIN_DEVELOPMENT: 'http://localhost:3000',
+    DOMAIN_DEVELOPMENT: 'http://localhost:3000',
 
-DOMAIN_PRODUCTION: 'https://seoblog.com',
+    DOMAIN_PRODUCTION: 'https://seoblog.com',
 
-DISQUS_SHORTNAME: 'seoblog-15'
+    DISQUS_SHORTNAME: 'seoblog-15'
 
-},
+    },
 
-devtool: 'source-map'
+    devtool: 'source-map'
 
-});
+    });
 
 
 
